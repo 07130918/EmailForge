@@ -233,7 +233,9 @@ export default function Home() {
                                 {samples.map((sample, i) => (
                                     <Button
                                         key={i}
-                                        colorScheme='teal'
+                                        bg='gray.700'
+                                        color='white'
+                                        _hover={{ bg: 'gray.800' }}
                                         minH={12}
                                         w='100%'
                                         onClick={() => generateMailFromSample(sample)}
