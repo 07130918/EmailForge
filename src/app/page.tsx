@@ -114,6 +114,11 @@ export default function Home() {
         });
     };
 
+    const generateMailFromSample = (sample: MailTarget) => {
+        setFormState(sample);
+        handleSubmit();
+    };
+
     return (
         <>
             <DisclaimerModal isOpen={isOpen} onClose={onClose} />
@@ -219,7 +224,7 @@ export default function Home() {
                                         colorScheme='teal'
                                         minH={12}
                                         w='100%'
-                                        onClick={() => setSample(sample)}
+                                        onClick={() => generateMailFromSample(sample)}
                                         my={1}
                                     >
                                         <Text>{sample.summary}</Text>
