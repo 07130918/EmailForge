@@ -178,14 +178,16 @@ export default function Home() {
                     width='full'
                     bgGradient='linear(135deg, #00c8ff, #1f7bc2, #00155c)'
                     p={4}
-                    justifyContent='flex-start'
+                    justifyContent='space-between'
                     alignItems='center'
                 >
                     <Text fontSize='xl' color='white' fontWeight='bold' pl={5}>
                         EmailForge
                     </Text>
+                    <Text color='white' pr={5}>
+                        Creating awesome emails are not rocket science 🚀
+                    </Text>
                 </HStack>
-
                 <Stack direction={{ base: 'column', md: 'row' }} p={8} spacing={6} align='start'>
                     <VStack spacing={4} flex='1' w='100%'>
                         <Select
