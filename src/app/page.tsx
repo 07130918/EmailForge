@@ -141,6 +141,8 @@ export default function Home() {
                         bg='#272D33'
                         color='#FFF'
                         borderColor='#4A5568'
+                        resize='none'
+                        rows={4}
                         onChange={handleChange}
                     />
                     <HStack w='full'>
