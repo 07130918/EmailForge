@@ -104,11 +104,21 @@ export default function Home() {
         });
     };
 
+    const resetFormState = () => {
+        setFormState({
+            type: '',
+            industry: '',
+            age: '',
+            position: '',
+            summary: '',
+        });
+    };
+
     return (
         <>
             <DisclaimerModal isOpen={isOpen} onClose={onClose} />
             <Box minH='100vh' bg='#161918'>
-                <Header />
+                <Header onReset={resetFormState} />
                 <Box pt={20}>
                     <Stack
                         direction={{ base: 'column', md: 'row' }}
@@ -201,7 +211,7 @@ export default function Home() {
                                 w='100%'
                             >
                                 <Text color='#FFF' pb={4}>
-                                    サンプルから生成する
+                                    サンプルから生成してみる
                                 </Text>
                                 {samples.map((sample, i) => (
                                     <Button

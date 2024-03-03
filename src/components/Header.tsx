@@ -1,6 +1,6 @@
 import { HStack, Text } from '@chakra-ui/react';
 
-const Header = () => {
+const Header = ({ onReset }: { onReset: () => void }) => {
     return (
         <HStack
             as='header'
@@ -13,7 +13,14 @@ const Header = () => {
             top={0}
             zIndex='banner'
         >
-            <Text fontSize='xl' color='white' fontWeight='bold' pl={5}>
+            <Text
+                fontSize='xl'
+                color='white'
+                fontWeight='bold'
+                pl={5}
+                cursor='pointer'
+                onClick={onReset}
+            >
                 EmailForge
             </Text>
             <Text color='white' pr={5}>
