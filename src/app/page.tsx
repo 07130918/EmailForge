@@ -201,8 +201,15 @@ export default function Home() {
                                 <Spacer />
                                 <Button
                                     colorScheme='gray'
-                                    isDisabled={reading}
                                     size='lg'
+                                    isDisabled={
+                                        reading ||
+                                        (!formState.type &&
+                                            !formState.age &&
+                                            !formState.industry &&
+                                            !formState.position &&
+                                            !formState.summary)
+                                    }
                                     onClick={handleSubmit}
                                 >
                                     生成する
