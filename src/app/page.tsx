@@ -55,14 +55,8 @@ export default function Home() {
         position: '',
         summary: '',
     });
-
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { onCopy, hasCopied } = useClipboard(result);
-
-    const setSample = (sampleData: MailTarget) => {
-        setFormState(sampleData);
-    };
-
     const handleChange = (
         e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
     ) => {
