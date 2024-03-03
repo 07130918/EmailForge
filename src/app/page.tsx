@@ -113,7 +113,7 @@ export default function Home() {
                     )}
                     <Input
                         name='industry'
-                        placeholder='業界'
+                        placeholder='業界(例: IT、金融、製造業)'
                         bg='#272D33'
                         color='#FFF'
                         borderColor='#4A5568'
@@ -121,7 +121,7 @@ export default function Home() {
                     />
                     <Input
                         name='age'
-                        placeholder='年齢'
+                        placeholder='年齢 (例: 20代後半から30代前半)'
                         bg='#272D33'
                         color='#FFF'
                         borderColor='#4A5568'
@@ -129,7 +129,7 @@ export default function Home() {
                     />
                     <Input
                         name='position'
-                        placeholder='役職'
+                        placeholder='受信者の役職/属性（例：マネージャー、エンジニア、学生）'
                         bg='#272D33'
                         color='#FFF'
                         borderColor='#4A5568'
