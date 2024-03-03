@@ -6,10 +6,12 @@ import {
     HStack,
     Input,
     Select,
+    Spacer,
     Stack,
     Text,
     Textarea,
     VStack,
+    useClipboard,
 } from '@chakra-ui/react';
 import type { ChangeEvent } from 'react';
 import { useState } from 'react';
@@ -17,6 +19,7 @@ import { useState } from 'react';
 export default function Home() {
     const [result, setResult] = useState<string>('');
     const [reading = false, setReading] = useState<boolean>(false);
+    const { onCopy, hasCopied } = useClipboard(result);
     // メールの種類の状態を追跡
     const [formState, setFormState] = useState<MailTarget>({
         type: '',
@@ -66,9 +69,8 @@ export default function Home() {
         });
     };
 
-    // bg='#161918'
     return (
-        <Box minH='100vh'>
+        <Box minH='100vh' bg='#161918'>
             <HStack
                 as='header'
                 width='full'
@@ -84,7 +86,14 @@ export default function Home() {
 
             <Stack direction={{ base: 'column', md: 'row' }} p={8} spacing={6} align='start'>
                 <VStack spacing={4} flex='1'>
-                    <Select name='type' placeholder='メールの種類を選択' onChange={handleChange}>
+                    <Select
+                        name='type'
+                        placeholder='メールの種類を選択'
+                        onChange={handleChange}
+                        bg='#272D33'
+                        color='#F7FAFC'
+                        borderColor='#4A5568'
+                    >
                         <option value='sales'>営業メール</option>
                         <option value='support'>カスタマーサポート/サービスメール</option>
                         <option value='newsletter'>ニュースレター</option>
@@ -96,27 +105,68 @@ export default function Home() {
                         <Input
                             name='mailType'
                             placeholder='メールの種類を入力'
+                            bg='#272D33'
+                            color='#FFF'
+                            borderColor='#4A5568'
                             onChange={handleChange}
                         />
                     )}
-                    <Input name='industry' placeholder='業界' onChange={handleChange} />
-                    <Input name='age' placeholder='年齢' type='number' onChange={handleChange} />
-                    <Input name='position' placeholder='役職' onChange={handleChange} />
-                    <Textarea
-                        name='summary'
-                        placeholder='メールの概要を簡潔に教えてください。'
+                    <Input
+                        name='industry'
+                        placeholder='業界'
+                        bg='#272D33'
+                        color='#FFF'
+                        borderColor='#4A5568'
                         onChange={handleChange}
                     />
-                    <Button colorScheme='gray' isDisabled={reading} onClick={handleSubmit}>
-                        生成
-                    </Button>
+                    <Input
+                        name='age'
+                        placeholder='年齢'
+                        bg='#272D33'
+                        color='#FFF'
+                        borderColor='#4A5568'
+                        onChange={handleChange}
+                    />
+                    <Input
+                        name='position'
+                        placeholder='役職'
+                        bg='#272D33'
+                        color='#FFF'
+                        borderColor='#4A5568'
+                        onChange={handleChange}
+                    />
+                    <Textarea
+                        name='summary'
+                        placeholder='メールの概要を簡潔に入力してください。'
+                        bg='#272D33'
+                        color='#FFF'
+                        borderColor='#4A5568'
+                        onChange={handleChange}
+                    />
+                    <HStack w='full'>
+                        <Spacer />
+                        <Button
+                            colorScheme='gray'
+                            isDisabled={reading}
+                            size='lg'
+                            onClick={handleSubmit}
+                        >
+                            生成
+                        </Button>
+                    </HStack>
                 </VStack>
 
-                <Box flex='1' bg='gray.50' p={4} borderRadius='md'>
-                    <Text fontSize='lg' fontWeight='bold'>
-                        生成結果:
+                <Box flex='1' borderColor='#4A5568' bg='#272D33' p={4} borderRadius='md'>
+                    <HStack borderColor='#4A5568'>
+                        <Text fontSize='lg' fontWeight='bold' color='#FFF'>
+                            生成結果:
+                        </Text>
+                        <Spacer />
+                        <Button onClick={onCopy}>{hasCopied ? 'Copied!' : 'Copy'}</Button>
+                    </HStack>
+                    <Text whiteSpace='pre-wrap' color='#FFF'>
+                        {result}
                     </Text>
-                    <Text whiteSpace='pre-wrap'>{result}</Text>
                 </Box>
             </Stack>
         </Box>
