@@ -70,7 +70,7 @@ export default function Home() {
         });
     };
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (mailTarget: MailTarget) => {
         setResult('');
         setReading(true);
 
@@ -80,7 +80,7 @@ export default function Home() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(formState),
+            body: JSON.stringify(mailTarget),
         });
         if (!response.ok || response.body == null) {
             toast({
@@ -121,7 +121,7 @@ export default function Home() {
 
     const generateMailFromSample = (sample: MailTarget) => {
         setFormState(sample);
-        handleSubmit();
+        handleSubmit(sample);
     };
 
     return (
@@ -215,7 +215,7 @@ export default function Home() {
                                             !formState.position &&
                                             !formState.summary)
                                     }
-                                    onClick={handleSubmit}
+                                    onClick={() => handleSubmit(formState)}
                                 >
                                     生成する
                                 </Button>
