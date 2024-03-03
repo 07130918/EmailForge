@@ -191,7 +191,7 @@ export default function Home() {
                             size='lg'
                             onClick={handleSubmit}
                         >
-                            生成
+                            生成する
                         </Button>
                     </HStack>
                     <Box borderColor='#4A5568' bg='#272D33' p={4} borderRadius='md' w='100%'>
