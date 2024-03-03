@@ -1,5 +1,5 @@
-import { Box, Button, Link, Stack } from '@chakra-ui/react';
-import Image from 'next/image';
+import { Box, Button, Image, Link, Stack } from '@chakra-ui/react';
+import NextImage from 'next/image';
 
 const Footer = ({ onOpen }: { onOpen: () => void }) => {
     return (
@@ -39,7 +39,18 @@ const Footer = ({ onOpen }: { onOpen: () => void }) => {
                 >
                     免責事項/Disclaimer
                 </Button>
-                <Image src='/OpenAI.jpeg' alt='OpenAI' width={160} height={160} />
+                <Link href='https://www.buymeacoffee.com/hi.im.kota' isExternal>
+                    <Image
+                        src='https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png'
+                        alt='Buy Me A Coffee'
+                        h='30px'
+                        w='108px'
+                    />
+                </Link>
+                <Link href='https://www.paypal.com/paypalme/kotawebdev' isExternal>
+                    <Image src='/paypal.png' alt='Paypal' h='45px' w='90px' />
+                </Link>
+                <NextImage src='/OpenAI.jpeg' alt='OpenAI' width={160} height={160} />
             </Stack>
         </Box>
     );
