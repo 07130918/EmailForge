@@ -1,4 +1,5 @@
 import { Box, Button, HStack, Link } from '@chakra-ui/react';
+import Image from 'next/image';
 
 const Footer = ({ onOpen }: { onOpen: () => void }) => {
     return (
@@ -31,6 +32,13 @@ const Footer = ({ onOpen }: { onOpen: () => void }) => {
                 >
                     免責事項/Disclaimer
                 </Button>
+                <Image
+                    src='/OpenAI.jpeg'
+                    alt='OpenAI'
+                    width={160}
+                    height={160}
+                    objectFit='contain'
+                />
             </HStack>
         </Box>
     );

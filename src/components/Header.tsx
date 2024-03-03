@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { HStack, Text } from '@chakra-ui/react';
 
 const Header = ({ onReset }: { onReset: () => void }) => {
@@ -23,9 +24,16 @@ const Header = ({ onReset }: { onReset: () => void }) => {
             >
                 EmailForge
             </Text>
-            <Text color='white' pr={5}>
-                Creating awesome emails are not rocket science 🚀
-            </Text>
+            <HStack>
+                <Text color='white'>Creating awesome emails are not rocket science 🚀</Text>
+                <Image
+                    src='/OpenAI.jpeg'
+                    alt='OpenAI'
+                    width={160}
+                    height={160}
+                    objectFit='contain'
+                />
+            </HStack>
         </HStack>
     );
 };

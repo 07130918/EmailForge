@@ -16,8 +16,8 @@ import {
     VStack,
     useClipboard,
     useDisclosure,
+    useToast,
 } from '@chakra-ui/react';
-import { useToast } from '@chakra-ui/react';
 import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
