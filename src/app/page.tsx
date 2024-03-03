@@ -17,6 +17,7 @@ import {
     useClipboard,
     useDisclosure,
 } from '@chakra-ui/react';
+import { useToast } from '@chakra-ui/react';
 import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
@@ -55,8 +56,11 @@ export default function Home() {
         position: '',
         summary: '',
     });
+
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { onCopy, hasCopied } = useClipboard(result);
+    const toast = useToast();
+
     const handleChange = (
         e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
     ) => {
@@ -79,7 +83,14 @@ export default function Home() {
             body: JSON.stringify(formState),
         });
         if (!response.ok || response.body == null) {
-            throw new Error('Network error');
+            toast({
+                title: 'エラーが発生しました',
+                description: 'メールの生成に失敗しました。もう一度お試しください。',
+                status: 'error',
+                duration: 5000,
+                isClosable: true,
+            });
+            throw new Error('メールの生成に失敗しました。もう一度お試しください。');
         }
 
         const reader = response.body.getReader();
