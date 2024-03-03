@@ -7,7 +7,7 @@ const Header = ({ onReset }: { onReset: () => void }) => {
         <HStack
             as='header'
             width='full'
-            bgGradient='linear(135deg, #00c8ff, #1f7bc2, #00155c)'
+            bgGradient='linear(to-r, blackAlpha.900, #1a202c, #2c5282)'
             p={4}
             justifyContent='space-between'
             alignItems='center'
