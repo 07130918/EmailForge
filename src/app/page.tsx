@@ -151,7 +151,7 @@ export default function Home() {
                                 <option value='newsletter'>ニュースレター</option>
                                 <option value='thankYou'>感謝や祝賀のメール</option>
                                 <option value='invitation'>招待メール</option>
-                                <option value='other'>その他</option>
+                                {/* <option value='other'>その他</option> */}
                             </Select>
                             {formState.type === 'other' && (
                                 <Input
