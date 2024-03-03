@@ -14,7 +14,7 @@ const DisclaimerModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
         <Modal isOpen={isOpen} onClose={onClose} size='lg'>
             <ModalOverlay />
             <ModalContent bg='#272D33' color='#FFF'>
-                <ModalHeader>免責事項</ModalHeader>
+                <ModalHeader>Disclaimer/免責事項</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody maxH='75vh' overflowY='auto'>
                     <Text>
