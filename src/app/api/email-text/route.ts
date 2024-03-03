@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
     try {
         const reqBody: MailTarget = await req.json();
         const response = await openai.createChatCompletion({
-            model: 'gpt-3.5-turbo',
+            model: 'gpt-3.5-turbo-0125',
             stream: true,
             temperature: 0.9,
             messages: [
