@@ -1,7 +1,8 @@
+import { HStack, Text, useBreakpointValue } from '@chakra-ui/react';
 import Image from 'next/image';
-import { HStack, Text } from '@chakra-ui/react';
 
 const Header = ({ onReset }: { onReset: () => void }) => {
+    const isMobile = useBreakpointValue({ base: true, md: false });
     return (
         <HStack
             as='header'
@@ -25,7 +26,9 @@ const Header = ({ onReset }: { onReset: () => void }) => {
                 EmailForge
             </Text>
             <HStack>
-                <Text color='white'>Creating awesome emails are not rocket science 🚀</Text>
+                {!isMobile && (
+                    <Text color='white'>Creating awesome emails are not rocket science 🚀</Text>
+                )}
                 <Image
                     src='/OpenAI.jpeg'
                     alt='OpenAI'

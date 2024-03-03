@@ -1,10 +1,16 @@
-import { Box, Button, HStack, Link } from '@chakra-ui/react';
+import { Box, Button, Link, Stack } from '@chakra-ui/react';
 import Image from 'next/image';
 
 const Footer = ({ onOpen }: { onOpen: () => void }) => {
     return (
         <Box mt={20} py={4} borderColor='#FFF' borderTopWidth='1px' bg='#161918'>
-            <HStack spacing={4} justifyContent='flex-start' pl={4}>
+            <Stack
+                direction={{ base: 'column', md: 'row' }}
+                spacing={4}
+                justifyContent='flex-start'
+                alignItems='center'
+                pl={4}
+            >
                 <Link
                     href='https://hi-there-this-is-kota.vercel.app'
                     isExternal
@@ -24,6 +30,7 @@ const Footer = ({ onOpen }: { onOpen: () => void }) => {
                     Report a Bug
                 </Link>
                 <Button
+                    p={0}
                     color='#FFF'
                     variant='ghost'
                     size='sm'
@@ -39,7 +46,7 @@ const Footer = ({ onOpen }: { onOpen: () => void }) => {
                     height={160}
                     objectFit='contain'
                 />
-            </HStack>
+            </Stack>
         </Box>
     );
 };
