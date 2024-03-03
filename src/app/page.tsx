@@ -16,6 +16,30 @@ import {
 import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 
+const samples: MailTarget[] = [
+    {
+        type: 'sales',
+        industry: 'IT',
+        age: '20代後半から40代前半',
+        position: 'エンジニア',
+        summary: '最新のクラウドソリューションをご紹介',
+    },
+    {
+        type: 'support',
+        industry: '製造業',
+        age: '30代後半から50代前半',
+        position: '製品開発マネージャー',
+        summary: '製品不具合のお詫びと対応策のご案内',
+    },
+    {
+        type: 'newsletter',
+        industry: '教育',
+        age: '30代前半',
+        position: '教育コンサルタント',
+        summary: '最新の教育技術トレンドレポート',
+    },
+];
+
 export default function Home() {
     const [result, setResult] = useState<string>('');
     const [reading = false, setReading] = useState<boolean>(false);
@@ -28,6 +52,10 @@ export default function Home() {
         position: '',
         summary: '',
     });
+
+    const setSample = (sampleData: MailTarget) => {
+        setFormState(sampleData);
+    };
 
     const handleChange = (
         e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -85,14 +113,15 @@ export default function Home() {
             </HStack>
 
             <Stack direction={{ base: 'column', md: 'row' }} p={8} spacing={6} align='start'>
-                <VStack spacing={4} flex='1'>
+                <VStack spacing={4} flex='1' w='100%'>
                     <Select
                         name='type'
                         placeholder='メールの種類を選択'
-                        onChange={handleChange}
                         bg='#272D33'
                         color='#F7FAFC'
                         borderColor='#4A5568'
+                        value={formState.type}
+                        onChange={handleChange}
                     >
                         <option value='sales'>営業メール</option>
                         <option value='support'>カスタマーサポート/サービスメール</option>
@@ -108,6 +137,7 @@ export default function Home() {
                             bg='#272D33'
                             color='#FFF'
                             borderColor='#4A5568'
+                            value={formState.type}
                             onChange={handleChange}
                         />
                     )}
@@ -117,6 +147,7 @@ export default function Home() {
                         bg='#272D33'
                         color='#FFF'
                         borderColor='#4A5568'
+                        value={formState.industry}
                         onChange={handleChange}
                     />
                     <Input
@@ -125,6 +156,7 @@ export default function Home() {
                         bg='#272D33'
                         color='#FFF'
                         borderColor='#4A5568'
+                        value={formState.age}
                         onChange={handleChange}
                     />
                     <Input
@@ -133,6 +165,7 @@ export default function Home() {
                         bg='#272D33'
                         color='#FFF'
                         borderColor='#4A5568'
+                        value={formState.position}
                         onChange={handleChange}
                     />
                     <Textarea
@@ -143,6 +176,7 @@ export default function Home() {
                         borderColor='#4A5568'
                         resize='none'
                         rows={4}
+                        value={formState.summary}
                         onChange={handleChange}
                     />
                     <HStack w='full'>
@@ -156,8 +190,24 @@ export default function Home() {
                             生成
                         </Button>
                     </HStack>
+                    <Box borderColor='#4A5568' bg='#272D33' p={4} borderRadius='md' w='100%'>
+                        <Text color='#FFF' pb={4}>
+                            サンプルから生成する
+                        </Text>
+                        {samples.map((sample, i) => (
+                            <Button
+                                key={i}
+                                colorScheme='teal'
+                                minH={12}
+                                w='100%'
+                                onClick={() => setSample(sample)}
+                                my={1}
+                            >
+                                <Text>{sample.summary}</Text>
+                            </Button>
+                        ))}
+                    </Box>
                 </VStack>
-
                 <Box flex='1' borderColor='#4A5568' bg='#272D33' p={4} borderRadius='md'>
                     <HStack borderColor='#4A5568'>
                         <Text fontSize='lg' fontWeight='bold' color='#FFF'>
