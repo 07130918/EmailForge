@@ -29,13 +29,7 @@ const Header = ({ onReset }: { onReset: () => void }) => {
                 {!isMobile && (
                     <Text color='white'>Creating awesome emails are not rocket science 🚀</Text>
                 )}
-                <Image
-                    src='/OpenAI.jpeg'
-                    alt='OpenAI'
-                    width={160}
-                    height={160}
-                    objectFit='contain'
-                />
+                <Image src='/OpenAI.jpeg' alt='OpenAI' width={160} height={160} />
             </HStack>
         </HStack>
     );

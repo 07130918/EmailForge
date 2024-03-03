@@ -39,13 +39,7 @@ const Footer = ({ onOpen }: { onOpen: () => void }) => {
                 >
                     免責事項/Disclaimer
                 </Button>
-                <Image
-                    src='/OpenAI.jpeg'
-                    alt='OpenAI'
-                    width={160}
-                    height={160}
-                    objectFit='contain'
-                />
+                <Image src='/OpenAI.jpeg' alt='OpenAI' width={160} height={160} />
             </Stack>
         </Box>
     );
